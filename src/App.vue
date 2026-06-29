@@ -1,7 +1,7 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import GanttPage from './views/GanttPage.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <GanttPage />
 </template>
