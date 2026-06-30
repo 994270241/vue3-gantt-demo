@@ -24,7 +24,7 @@ const activeTab = ref('stat')
           <el-icon :size="14">
             <ChatLineSquare />
           </el-icon>
-          <span class="text-sm">我的工作</span>
+          <span class="text-sm">我的工作(测试部署)</span>
         </div>
         <el-avatar :size="28">J</el-avatar>
         <span>Jesse</span>
