@@ -1,5 +1,29 @@
-# Vue 3 + Vite
+# Vue3 Gantt Demo
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Local development
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deploy with GitHub Pages (recommended)
+
+This project includes `.github/workflows/deploy-pages.yml` and auto deploys on every push to `main`.
+
+1. Create a **public** GitHub repository and push this project.
+2. In GitHub repository settings:
+   - Open `Settings -> Pages`
+   - Set `Build and deployment -> Source` to `GitHub Actions`
+3. Push to `main`, wait for workflow `Deploy Vue App to GitHub Pages` to pass.
+4. Your page URL will be:
+
+```text
+https://<your-github-username>.github.io/<your-repo-name>/
+```
