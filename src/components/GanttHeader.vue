@@ -1,63 +1,49 @@
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
+import { ChatLineSquare } from '@element-plus/icons-vue'
 
-const searchParams = reactive({
-  member: '',
-  startDate: '2024-09-01',
-  endDate: '2024-10-29'
-})
-
-const memberOptions = [
-  { label: '全部成员', value: '' },
-  { label: 'Streep', value: 'streep' },
-  { label: 'Portman', value: 'portman' },
-  { label: 'Swift', value: 'swift' }
-]
+const activeTab = ref('stat')
 </script>
 
 <template>
-  <header class="py-3">
-    <div class="flex items-center gap-3 overflow-x-auto whitespace-nowrap">
-      <span class="text-sm">成员</span>
-      <el-select
-        v-model="searchParams.member"
-        placeholder="请选择成员"
-        class="!w-[170px]"
-        clearable
-        popper-class="select-popper"
-      >
-        <el-option
-          v-for="item in memberOptions"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        />
-      </el-select>
+  <header class="overflow-hidden bg-white mx-0 my-0">
+    <div class="flex items-center justify-between border-b border-slate-200 px-4">
+      <div class="flex items-center gap-2 text-sm font-semibold text-slate-700">
+        <span class="flex h-5 w-5 items-center justify-center rounded-full bg-sky-500 text-xs text-white">Q</span>
+        <span>企业QA</span>
+      </div>
 
-      <span class="ml-3 text-sm">开始时间</span>
-      <el-date-picker
-        v-model="searchParams.startDate"
-        type="date"
-        value-format="YYYY-MM-DD"
-        placeholder="开始日期"
-        class="!w-[170px]"
-      />
+      <el-tabs v-model="activeTab" class="header-tabs" stretch>
+        <el-tab-pane label="需求" name="requirement" />
+        <el-tab-pane label="任务" name="task" />
+        <el-tab-pane label="统计" name="stat" />
+      </el-tabs>
 
-      <span class="text-sm">结束时间</span>
-      <el-date-picker
-        v-model="searchParams.endDate"
-        type="date"
-        value-format="YYYY-MM-DD"
-        placeholder="结束日期"
-        class="!w-[170px]"
-      />
+      <div class="flex items-center gap-4 text-xs text-slate-500">
+        <div class="flex items-center gap-1 text-[#0c7ae6]">
+          <el-icon :size="14">
+            <ChatLineSquare />
+          </el-icon>
+          <span class="text-sm">我的工作</span>
+        </div>
+        <el-avatar :size="28">J</el-avatar>
+        <span>Jesse</span>
+      </div>
     </div>
   </header>
 </template>
 
 <style scoped>
-:deep(.el-select__wrapper) {
-  border-radius: 9999px !important;
-  overflow: hidden !important;
+:deep(.header-tabs .el-tabs__header) {
+  margin: 0;
+  height: 50px;
+}
+
+:deep(.header-tabs .el-tabs__nav-wrap::after) {
+  display: none;
+}
+
+:deep(.header-tabs .el-tabs__item) {
+  height: 50px;
 }
 </style>
